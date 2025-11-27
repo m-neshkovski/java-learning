@@ -1,6 +1,29 @@
 public class Main {
-
+    // resenie na challenge section 5.48
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        displayHighScorePosition("Bob0", calculateHighScorePosition(1500));
+        displayHighScorePosition("Bob1", calculateHighScorePosition(1000));
+        displayHighScorePosition("Bob2", calculateHighScorePosition(500));
+        displayHighScorePosition("Bob3", calculateHighScorePosition(100));
+        displayHighScorePosition("Bob4", calculateHighScorePosition(25));
+    }
+
+    public static void displayHighScorePosition(String playerName, int playerPosition) {
+        System.out.println(playerName + " managed to get in position " + playerPosition + " on the high score list.");
+    }
+
+    public static int calculateHighScorePosition(int playerScore) {
+
+        int position = 4;
+
+        if (playerScore >= 1000) {
+            position = 1;
+        } else if (playerScore >= 500) {
+            position = 2;
+        } else if (playerScore >= 100) {
+            position = 3;
+        }
+
+        return position;
     }
 }
