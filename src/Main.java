@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(getDurationString(59));
+        System.out.println(getDurationString(123456789));
     }
 
     public static String getDurationString(int seconds) {
@@ -23,8 +23,26 @@ public class Main {
             return "Invalid value for seconds";
         }
 
-        return String.format("%02d", minutes / 60) + "h "
-                + String.format("%02d", minutes % 60) + "m "
+        return getDurationString(minutes / 60, minutes % 60, seconds);
+    }
+
+    public static String getDurationString(int hours, int minutes, int seconds) {
+
+        if (hours < 0) {
+            return "Invalid value for hours";
+        }
+
+        if (minutes < 0 || minutes > 59) {
+            return "Invalid value for seconds";
+        }
+
+        if (seconds < 0 || seconds > 59) {
+            return "Invalid value for seconds";
+        }
+
+        return hours / 24 + " Days - "
+                + String.format("%02d", hours % 24) + "h "
+                + String.format("%02d", minutes) + "m "
                 + String.format("%02d", seconds) + "s";
     }
 }
