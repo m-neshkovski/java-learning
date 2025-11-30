@@ -1,6 +1,29 @@
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+//        int end = 10;
+//
+//        for (int i = 1; i <= end; i++) {
+//            System.out.println("i = " + i);
+//        }
+//
+//        int j = 1;
+//        while (j <= end) {
+//            System.out.println("j = " + j);
+//            j++;
+//        }
+//
+//        int k = 1;
+//        do {
+//            System.out.println("k = " + k);
+//            k++;
+//        } while (k <= end);
+
+        int number = 0;
+        while (number < 50) {
+            number += 5;
+            if (number % 25 == 0) continue;
+            System.out.print(number + "_");
+        }
     }
 }
