@@ -8,28 +8,11 @@ public class Palindromic {
         }
     }
 
-    public static boolean isPalindrome(int x) {
-        int reverse = 0;
-        int original = x;
-        boolean isNegative = x < 0;
-
-        if(isNegative) {
-            x *= -1;
-        }
-
-        while (x > 0) {
-            reverse = reverse * 10 + x % 10;
-            x /= 10;
-        }
-
-        if (isNegative) {
-            reverse *= -1;
-        }
-        System.out.println(reverse);
-        return reverse == original;
+    public static boolean isPalindrome(int number) {
+        return reverseNumber(number) == number;
     }
 
-    public static int reverse(int x) {
+    public static int reverseNumber(int x) {
         int reverse = 0;
         boolean isNegative = x < 0;
         if (isNegative) {
