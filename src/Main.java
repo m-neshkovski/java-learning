@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -8,9 +10,11 @@ public class Main {
 //
 //        System.out.println("Age = " + (currentYear - dateOfBirth));
 
-        System.out.println(getInputFromConsole(currentYear));
-
-        System.out.println(getInputFromScanner(currentYear));
+        try {
+            System.out.println(getInputFromConsole(currentYear));
+        } catch (NullPointerException e) {
+            System.out.println(getInputFromScanner(currentYear));
+        }
     }
 
     public static String getInputFromConsole(int currentYear) {
@@ -24,6 +28,22 @@ public class Main {
     }
 
     public static String getInputFromScanner(int currentYear) {
-        return "";
+        // To read from console
+        Scanner scanner = new Scanner(System.in);
+
+        // To read from a file
+//        Scanner fileScanner = new Scanner(new File ("nameOfFileOnFileSystem"));
+
+        System.out.println("Hi, what is your name? ");
+        String name = scanner.nextLine();
+
+        System.out.println("Hello, " + name + ", Thanks for joining us!");
+
+        System.out.println("What is your date of birth? ");
+        String dateOfBirth = scanner.nextLine();
+
+        int age = currentYear - Integer.parseInt(dateOfBirth);
+
+        return "So you are " + age + " years old.";
     }
 }
