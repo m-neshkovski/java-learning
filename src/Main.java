@@ -40,10 +40,30 @@ public class Main {
         System.out.println("Hello, " + name + ", Thanks for joining us!");
 
         System.out.println("What is your date of birth? ");
-        String dateOfBirth = scanner.nextLine();
 
-        int age = currentYear - Integer.parseInt(dateOfBirth);
+        boolean validDOB = false;
+        int age = 0;
+
+        do {
+            System.out.println("Enter a year of birth >= " + (currentYear - 125) + " and <= " + currentYear + ".");
+            try {
+                age = checkData(currentYear, scanner.nextLine());
+                validDOB = age != -1;
+            } catch (NumberFormatException e) {
+                System.out.println("Characters not allowed. Please enter a valid year.");
+            }
+        } while (!validDOB);
+
+
 
         return "So you are " + age + " years old.";
+    }
+
+    public static int checkData(int currentYear, String dateOfBirth) {
+        int dob = Integer.parseInt(dateOfBirth);
+        int minYear = currentYear - 125;
+        if (dob < minYear || dob > currentYear) return -1;
+
+        return currentYear - dob;
     }
 }
