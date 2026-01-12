@@ -14,9 +14,15 @@ public class Main {
 
 //        account.deposit(10000);
 
-        account.withdraw(100);
-        account.withdraw(900);
-        account.withdraw(10000);
-        account.withdraw(8999);
+//        account.withdraw(100);
+//        account.withdraw(900);
+//        account.withdraw(10000);
+//        account.withdraw(8999);
+
+        Customer defaultCustomer = new Customer();
+        defaultCustomer.printStatus();
+
+        Customer milosh = new Customer("Milosh Neshkovski", 1000000, "m.neshkovski@gmail.com");
+        milosh.printStatus();
     }
 }
