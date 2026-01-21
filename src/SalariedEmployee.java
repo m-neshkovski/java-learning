@@ -15,8 +15,6 @@ public class SalariedEmployee extends Employee {
 
     @Override
     public double collectPay() {
-        boolean contractEnded = !getEndDate().isEmpty();
-
         return (isRetired || !getEndDate().isEmpty()) ? 0.0 : annualSalary / 12;
     }
 
