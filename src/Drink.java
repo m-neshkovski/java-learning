@@ -1,16 +1,9 @@
-import java.util.Scanner;
+public class Drink extends MenuItem {
 
-public class Drink {
-    private String type;
     private DrinkSize size;
-    private double price;
 
     public Drink(String type, int sizeId, double price) {
         this(type, DrinkSize.factory(sizeId), price);
-    }
-
-    public Drink(String type) {
-        this(type, 1, 0.0);
     }
 
     public Drink(String type, DrinkSize size) {
@@ -18,42 +11,23 @@ public class Drink {
     }
 
     public Drink(String type, DrinkSize size, double price) {
-        this.type = type;
+        super(type, price);
         this.size = size;
-        this.price = price;
     }
 
     public Drink() {
         this("Not selected", 1, 0.0);
     }
 
-    public String getType() {
-        return type;
-    }
-
     public DrinkSize getSize() {
         return size;
     }
 
-    public void setSize(DrinkSize size) {
-        this.size = size;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     public void setPrice(DrinkSize size) {
-        this.price = this.getPrice();
+        this.setPrice(this.getPrice());
     }
 
     public static Drink createFromUserInput() {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println("Choose a drink: ");
         System.out.println("1 - Coke, 2 - Water, 3 - IceTee, 0 - None");
 

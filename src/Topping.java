@@ -1,31 +1,17 @@
-import java.util.Scanner;
-
-public class Topping {
+public class Topping extends MenuItem {
 
     private String type;
     private double price;
 
     public Topping(String type, double price) {
-        this.type = type;
-        this.price = price;
+        super(type, price);
     }
 
     public Topping() {
-        type = "Not selected";
-        price = 0.0;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public double getPrice() {
-        return price;
+        this("Not selected", 0.0);
     }
 
     public static Topping createFromUserInput() {
-
-        Scanner scanner = new Scanner(System.in);
 
         printMenu();
 

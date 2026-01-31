@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 public class BurgerToppings {
+
+    private static final Scanner scanner = new Scanner(System.in);
     // Simulate list
     private Topping topping1 = new Topping();
     private Topping topping2 = new Topping();
@@ -9,8 +11,6 @@ public class BurgerToppings {
     private Topping topping5 = new Topping();
 
     public BurgerToppings(int maxToppings) {
-
-        Scanner scanner = new Scanner(System.in);
         int nextTopping = 1;
 
         Topping.printMenu();
@@ -28,8 +28,6 @@ public class BurgerToppings {
 
             nextTopping = addTopping(nextTopping, Topping.factory(choice));
         } while (nextTopping <= maxToppings);
-
-        System.out.println("Total price of toppings: " + getPrice());
     }
 
     public int addTopping(int nextTopping, Topping topping) {
@@ -42,9 +40,18 @@ public class BurgerToppings {
             default: break;
         }
 
-        System.out.println("Topping " + nextTopping + " -> " +  topping.getType() + "(" + topping.getPrice() + ")");
-
         return nextTopping + 1;
+    }
+
+    public Topping getTopping(int index) {
+        return switch (index) {
+            case 1 -> topping1;
+            case 2 -> topping2;
+            case 3 -> topping3;
+            case 4 -> topping4;
+            case 5 -> topping5;
+            default -> null;
+        };
     }
 
     public double getPrice() {
@@ -60,5 +67,11 @@ public class BurgerToppings {
                 ", topping4=" + topping4 +
                 ", topping5=" + topping5 +
                 '}';
+    }
+
+    public void printItem() {
+        for (int i = 1; i <= 5; i++) {
+            if (getTopping(i).getPrice() != 0.0) getTopping(i).printItem();
+        }
     }
 }

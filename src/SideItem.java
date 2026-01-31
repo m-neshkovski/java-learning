@@ -1,21 +1,14 @@
-import java.util.Scanner;
-
-public class SideItem {
-    private String type;
-    private double price;
+public class SideItem extends MenuItem {
 
     public SideItem(String type, double price) {
-        this.type = type;
-        this.price = price;
+        super(type, price);
     }
 
     public SideItem() {
-        this("Not selected", 0.0);
+        super("Not selected", 0.0);
     }
 
     public static SideItem createFromUserInput() {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println("Choose a SideItem: ");
         System.out.println("1 - Fries (40 denari), 2 - Salad (30 denari), 0 - None");
 
@@ -28,14 +21,6 @@ public class SideItem {
             case 2 -> new Salad();
             default -> new SideItem();
         };
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public double getPrice() {
-        return price;
     }
 }
 

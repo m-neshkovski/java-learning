@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class DrinkSize {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     private int id;
     private String name;
 
@@ -27,8 +29,6 @@ public class DrinkSize {
     }
 
     public static DrinkSize createFromUserInput() {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println("Choose drink size: ");
         System.out.println("1 - Small, 2 - Medium, 3 - Large (Default is Small)");
 
